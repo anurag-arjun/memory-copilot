@@ -1,0 +1,20 @@
+[package]
+name = "memory-copilot"
+version = "0.1.0"
+description = "System-wide AI assistant for instant knowledge retrieval"
+authors = ["you"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "1.5.0", features = [] }
+
+[dependencies]
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tauri = { version = "1.5.0", features = ["global-shortcut-all", "shell-open"] }
+tokio = { version = "1.0", features = ["full"] }
+rusqlite = { version = "0.29.0", features = ["bundled"] }
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
